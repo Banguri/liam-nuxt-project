@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* ================================== Footer ================================== */
+
+#footer {
+	position: relative;
+	background: #222;
+	& > .inner {
+		overflow: hidden;
+		position: relative;
+		max-width: 1260px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 20px 30px;
+		color: rgba(255, 255, 255, 0.4);
+	}
+}
+
+/* ================================== media query ================================== */
+@include respond-to('lg') {
+
+}
+
+@include respond-to('md') {
+
+}
+
+@include respond-to('sm') {
+
+}

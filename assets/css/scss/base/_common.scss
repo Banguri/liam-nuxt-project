@@ -1,0 +1,334 @@
+@charset "utf-8";
+/* ================================== Common ================================== */
+// img { max-width: 100%; height: auto; }
+a, a:hover, a:focus, a:active {
+	text-decoration: none;
+}
+
+#skipNav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 99999;
+	a {
+		overflow: hidden;
+		display: block;
+		width: 1px;
+		height: 1px;
+		margin-bottom: -1px;
+		color: #444;
+		font-size: 0;
+		text-decoration: none;
+		&:hover,
+		&:active,
+		&:focus {
+			width: 100%;
+			height: auto;
+			padding: 5px 0;
+			background: #303030;
+			font-size: 14px;
+			text-align: center;
+			color: #fff;
+		}
+	}
+}
+
+caption,
+.hidden {
+	position: absolute;
+	top: -9999;
+	left: -9999;
+	font-size: 0 !important;
+	line-height: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+caption {
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	overflow:hidden;
+}
+.hidden,
+legend {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+// Placeholder Text Color
+input[placeholder] {
+	&::-webkit-input-placeholder{ color: #777; }
+	&:-moz-placeholder { color: #777;}
+	&::-moz-placeholder { color: #777;}
+	&:-ms-input-placeholder { color: #777; }
+	&.placeholder{color: #777;}
+}
+html {
+	font-size: 62.5%; /* Sets up the Base 10 stuff */
+	position: relative;
+	min-height: 100%;
+	overflow-y: auto;
+}
+body {
+	font-family: $fontFamily;
+	font-weight: 400; // Light:300, Regular:400, Medium:500, Bold:700;
+	font-style: normal;
+	@include font-size(1.6);
+	line-height: 1.5;
+	//letter-spacing: -0.02em;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-y: hidden;
+}
+html, body {
+	overflow-x: hidden;
+	//height: 100%;
+}
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+.webOnly {
+	display: inline-block;
+}
+.mobOnly {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
+
+table {
+	width: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	border-collapse: collapse;
+}
+// input
+input[type="text"],
+input[type="password"],
+textarea {
+	width: 100%;
+	appearance:none ;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	@include border-radius(0);
+  font-family: inherit;
+	border: 1px solid #ccc;
+	@include box-sizing(border-box);
+}
+
+input[type="text"],
+input[type="password"] {
+	padding: 0 10px;
+	@include lh(39px);
+}
+textarea {
+	height: auto;
+	padding: 10px;
+}
+select {
+  height: 39px;
+  padding: 4px 5px 4px 5px;
+  font-family: inherit;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+}
+
+.ottButton {
+	text-align: center;
+	@include clearfix;
+	.ottBtn {
+		margin-left: 5px;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	& > .floatL,
+	& > .floatR {
+		float: left;
+		.ottBtn {
+			float: left;
+		}
+	}
+	& > .floatR {
+		float: right;
+	}
+}
+.ottBtn {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 0;
+	& > * {
+		display: inline-block;
+		min-width: 140px;
+		padding: 0 25px;
+		text-align: center;
+		color: #fff;
+		@include font-size(1.8);
+		@include lh(50px);
+		background: #666;
+		border: 1px solid #666;
+		cursor: pointer;
+		@include transition(all, .3s, linear);
+	}
+	&:hover {
+		& > * {
+			background: #444;
+			border: 1px solid #444;
+		}
+	}
+	&.btnDefault {
+		& > * {
+			background: #666;
+			border: 1px solid #666;
+		}
+		&:hover {
+			& > * {
+				background: #444;
+				border: 1px solid #444;
+			}
+		}
+	}
+	&.btnPrimary {
+		& > * {
+			background: #333;
+			border: 1px solid #333;
+		}
+		&:hover {
+			& > * {
+				background: #111;
+				border: 1px solid #111;
+			}
+		}
+	}
+	&.btnDark {
+		& > * {
+			background: #333;
+			border: 1px solid #333;
+		}
+		&:hover {
+			& > * {
+				background: #111;
+				border: 1px solid #111;
+			}
+		}
+	}
+	&.btnGray {
+		& > * {
+			background: #666;
+			border: 1px solid #666;
+		}
+		&:hover {
+			& > * {
+				background: #444;
+				border: 1px solid #444;
+			}
+		}
+	}
+	&.btnLight {
+		& > * {
+			background: #999;
+			border: 1px solid #999;
+		}
+		&:hover {
+			& > * {
+				background: #777;
+				border: 1px solid #777;
+			}
+		}
+	}
+	&.btnLine {
+		& > * {
+			color: #666;
+			background: #fff;
+			border: 1px solid #999;
+		}
+		&:hover {
+			& > * {
+				color: #333;
+				background: #fff;
+				border: 1px solid #444;
+			}
+		}
+	}
+}
+
+/* ================================== media query ================================== */
+@include respond-to('lg') {
+
+}
+
+@include respond-to('md') {
+	.ottBtn {
+		& > * {
+			min-width: 74px;
+			padding: 0 3px;
+			@include font-size(1.5);
+			@include lh(38px);
+		}
+	}
+}
+
+@include respond-to('sm') {
+	// html {
+	// 	font-size: 62.5% * 7/10;
+	// }
+	.webOnly {
+		display: none;
+	}
+	.mobOnly {
+		display: inline-block;
+	}
+	input[type="text"],
+	input[type="password"],
+	textarea,
+	select {
+	 	@include font-size(1.8);
+	}
+	input[type="text"],
+	input[type="password"] {
+		padding: 0 7px;
+		@include lh(30px);
+	}
+	textarea {
+		height: auto;
+		padding: 7px;
+	}
+	select {
+	  height: 30px;
+	}
+	.ottButton {
+		& > .floatL,
+		& > .floatR {
+			float: none;
+			display: block;
+			.ottBtn {
+				float: none;
+			}
+		}
+		& > .floatR {
+			float: none;
+		}
+	}
+}

@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* ================================== Layout ================================== */
+
+#wrap {
+	position: relative;
+}
+
+#container {
+	float: none;
+	padding: 0;
+	width: auto;
+	min-height: 800px;
+	border-right: none;
+  -ms-word-break: keep-all;
+  word-break: keep-all;
+	& > .inner {
+		overflow: hidden;
+		position: relative;
+		max-width: 1260px;
+		margin: 0 auto;
+		padding: 120px 30px;
+		background: rgba(0,0,0,.03);
+	}
+}
+
+/* ================================== media query ================================== */
+@include respond-to('lg') {
+
+}
+
+@include respond-to('md') {
+
+}
+
+@include respond-to('sm') {
+
+}
